@@ -1,8 +1,7 @@
 'use strict'
-export { }
 
 
-class Animal {
+export class Animal {
   hunger: number;
   thirst: number;
 
@@ -25,11 +24,11 @@ class Animal {
   }
 }
 
-let panda = new Animal(1.5, 10);
-console.log(panda);
+// let panda = new Animal(1.5, 10);
+// console.log(panda);
 
-let cat = new Animal(4.4);
-console.log(cat);
+// let cat = new Animal(4.4);
+// console.log(cat);
 
-cat.play();
-console.log(cat);
+// cat.play();
+// console.log(cat);
