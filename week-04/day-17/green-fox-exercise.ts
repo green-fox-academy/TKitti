@@ -6,10 +6,14 @@ class Person {
   age: number;
   gender: string;
 
-  constructor (name: string, age: number, gender: string) {
-    this.name = name;
-    this.age = age;
-    this.gender = gender;
+  constructor (
+    name: string = 'Jane Doe',
+    age: number = 30,
+    gender: string = 'female'
+    ) {
+      this.name = name;
+      this.age = age;
+      this.gender = gender;
   }
 
   introduce() {
@@ -30,10 +34,10 @@ class Student {
   skippedDays: number;
 
   constructor (
-    name: string,
-    age: number,
-    gender: string,
-    previousOrganization: string,
+    name: string = 'Jane Doe',
+    age: number = 30,
+    gender: string = 'female',
+    previousOrganization: string = 'The School of Life',
     skippedDays: number = 0) {
       this.name = name;
       this.age = age;
@@ -63,11 +67,16 @@ class Mentor {
   gender: string;
   level: string;
 
-  constructor (name: string, age: number, gender: string, level: string) {
-    this.name = name;
-    this.age = age;
-    this.gender = gender;
-    this.level = level;
+  constructor (
+    name: string = 'Jane Doe',
+    age: number = 30,
+    gender: string = 'female',
+    level: string = 'intermediate'
+    ) {
+      this.name = name;
+      this.age = age;
+      this.gender = gender;
+      this.level = level;
   }
 
   introduce() {
@@ -88,10 +97,10 @@ class Sponsor {
   hiredStudents: number;
 
   constructor (
-    name: string,
-    age: number,
-    gender: string,
-    company: string,
+    name: string = 'Jane Doe',
+    age: number = 30,
+    gender: string = 'female',
+    company: string = 'Google',
     hiredStudents: number = 0) {
       this.name = name;
       this.age = age;
@@ -117,17 +126,17 @@ class Sponsor {
 let people = [];
 let mark = new Person('Mark', 46, 'male');
 people.push(mark);
-let jane = new Person('Jane Doe', 30, 'female');
+let jane = new Person();
 people.push(jane);
 let john = new Student('John Doe', 20, 'male', 'BME');
 people.push(john);
-let student = new Student('Jane Doe', 30, 'female', 'The School of Life');
+let student = new Student();
 people.push(student);
 let gandhi = new Mentor('Gandhi', 148, 'male', 'senior');
 people.push(gandhi);
-let mentor = new Mentor('Jane Doe', 30, 'female', 'intermediate');
+let mentor = new Mentor();
 people.push(mentor);
-let sponsor = new Sponsor('Jane Doe', 30, 'female', 'Google');
+let sponsor = new Sponsor();
 let elon = new Sponsor('Elon Musk', 46, 'male', 'SpaceX');
 people.push(elon);
 
