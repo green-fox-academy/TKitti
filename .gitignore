@@ -1,2 +1,6 @@
 table-printer.ts
 flowers-trees(with-classes-not working).ts
+
+node_modules
+package.json
+package-lock.json
