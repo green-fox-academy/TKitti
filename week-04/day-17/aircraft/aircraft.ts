@@ -1,5 +1,6 @@
 'use sctrict';
 
+export { Aircraft, F16, F35 };
 
 class Aircraft {
   type: string;
