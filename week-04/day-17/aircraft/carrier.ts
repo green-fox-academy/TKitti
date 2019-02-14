@@ -31,7 +31,12 @@ class Carrier {
       
       else if (this.storeOfAmmo < allAmmoNeeded) {
         this.listOfAircrafts.sort(function(a,b): any {
-          return (a.hasPriority === b.hasPriority)? 0 : a.hasPriority? -1 : 1;
+          return (a.hasPriority === b.hasPriority)
+           ? 0 //if both are true or both are false, return 0
+           : a.hasPriority //else if:
+           ? -1 : 1; //if a is true, return -1, else return 1
+           //if result is minus, the sort function leaves the element
+           //if result is positive, the sort swaps the two elements
         });
 
         this.listOfAircrafts.forEach(oneAircraft => {
