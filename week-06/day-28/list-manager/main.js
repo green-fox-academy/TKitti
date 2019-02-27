@@ -117,3 +117,25 @@ deleteButton.onclick = function (event) {
   leftListWithEvent.children[indexOfHighlightedElement].remove();
   leftListWithEvent.children[0].style.backgroundColor = 'grey';
 }
+
+
+//clicking on the > button
+let arrowButton = middleList.children[1];
+arrowButton.onclick = function (event) {
+  let leftListWithEvent = event.currentTarget.parentElement.previousSibling;
+  let rightListWithEvent = event.currentTarget.parentElement.nextSibling;
+  console.log(rightListWithEvent);
+
+  let indexOfHighlightedElement = 0;
+  
+  for (let i = 0; i < leftListWithEvent.childElementCount; i++) {
+    if (leftListWithEvent.children[i].style.backgroundColor === 'grey') {
+      indexOfHighlightedElement = i;
+    }
+  }
+
+  let removedSelectedElement = leftListWithEvent.removeChild(leftListWithEvent.children[indexOfHighlightedElement]);
+  removedSelectedElement.style.backgroundColor = 'white';
+  rightListWithEvent.appendChild(removedSelectedElement);
+  leftListWithEvent.children[0].style.backgroundColor = 'grey';
+}
