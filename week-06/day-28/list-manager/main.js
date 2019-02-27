@@ -1,13 +1,14 @@
 let body = document.getElementsByTagName('body')[0];
 let script = document.getElementsByTagName('script')[0];
 
-
+//div container
 let container = document.createElement('div');
 container.setAttribute('style',
 'display: flex; justify-content: space-between; width: 400px;');
 body.insertBefore(container, script);
 
 
+//left box
 let leftList = document.createElement('ul');
 leftList.setAttribute('style', 
 'border: 1px solid black; width: 120px; min-height: 92px; padding: 0px;');
@@ -24,6 +25,7 @@ for (let i = 0; i < items.length; i++) {
 }
 
 
+//middle box
 let middleList = document.createElement('ul');
 middleList.setAttribute('style', 
 'width: 120px; min-height: 92px; padding: 0px; text-align: center;');
@@ -43,6 +45,7 @@ for (let i = 0; i < buttons.length; i++) {
 }
 
 
+//right box
 let rightList = document.createElement('ul');
 rightList.setAttribute('style', 
 'border: 1px solid black; width: 120px; min-height: 92px; padding: 0px;');
