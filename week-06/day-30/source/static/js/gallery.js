@@ -11,6 +11,8 @@ let listOfImgSources = [
 
 let activeImage = listOfImgSources[0];
 
+
+//right arrow
 let rightArrow = document.getElementById('right');
 rightArrow.onclick = function (event) {
   let mainImage = event.currentTarget.previousElementSibling.children[0];
@@ -23,7 +25,37 @@ rightArrow.onclick = function (event) {
     }
   });
 
-  activeImage = listOfImgSources[index+1];
+  if (index === listOfImgSources.length - 1) {
+    activeImage = listOfImgSources[0];
+  } else {
+    activeImage = listOfImgSources[index+1];
+  }
+
+  bigIMG.setAttribute('src', activeImage.source)
+  imgTitleElement.textContent = activeImage.imgTitle;
+  imgTextElement.textContent = activeImage.imgText;
+};
+
+
+
+//left arrow
+let leftArrow = document.getElementById('left');
+leftArrow.onclick = function (event) {
+  let mainImage = event.currentTarget.nextElementSibling.children[0];
+
+  let index = 0;
+
+  listOfImgSources.forEach(oneImgObj => {
+    if (oneImgObj.source === mainImage.getAttribute('src')) {
+      index = oneImgObj.id;
+    }
+  });
+
+  if (index === 0) {
+    activeImage = listOfImgSources[listOfImgSources.length - 1];
+  } else {
+    activeImage = listOfImgSources[index-1];
+  }
 
   bigIMG.setAttribute('src', activeImage.source)
   imgTitleElement.textContent = activeImage.imgTitle;
