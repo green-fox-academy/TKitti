@@ -24,7 +24,13 @@
       </svg>
     </button> </div>
 
-    <div id="main-img-container"> <img id="active-main-img" src="<%= listOfImgSources[0] %>" alt=""> </div>
+    <div id="main-img-container"> 
+      <img id="active-main-img" src="<%= listOfImgSources[0].source %>" alt="<%= listOfImgSources[0].altText %>">
+      <div id="main-img-data-container">
+        <h2><%= listOfImgSources[0].imgTitle %></h2>
+        <p><%= listOfImgSources[0].imgText %></p>
+      </div>
+    </div>
     
     <div class="arrow"> <button>
         <svg id="arrow-right" xmlns="http://www.w3.org/2000/svg" width="14.906" height="22.75" viewBox="0 0 14.906 22.75">

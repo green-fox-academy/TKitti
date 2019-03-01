@@ -6,12 +6,13 @@
 body {
   height: 100vh;
   width: 100vw;
+  background-color: gainsboro;
 }
 
 #main-container {
   display: flex;
   width: 100%;
-  max-height: 80vh;
+  height: 80vh;
   overflow: hidden;
 }
 
@@ -23,7 +24,7 @@ body {
 }
 
 button {
-  background-color: white;
+  background-color: gainsboro;
   border: none;
 }
 
@@ -34,9 +35,29 @@ button:hover {
 
 #main-img-container {
   width: 90%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 #active-main-img {
   width: 100%;
-  height: -webkit-fill-available;
+  height: 80vh;
+}
+
+#main-img-data-container {
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  background-color: rgba(0,0,0,0.5);
+  opacity: 5;
+}
+
+#main-img-data-container h2 {
+  padding: 2% 3% 1% 3%;
+  color: aliceblue;
+}
+#main-img-data-container p {
+  padding: 0% 3% 2% 3%;
+  color: gainsboro;
 }
