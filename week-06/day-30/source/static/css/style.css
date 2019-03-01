@@ -61,3 +61,28 @@ button:hover {
   padding: 0% 3% 2% 3%;
   color: gainsboro;
 }
+
+
+
+/* Thumbnails */
+#thumbnail-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 20vh;
+}
+
+
+#thumbnail-container div > img {
+  width: 100px;
+  height: 100px;
+  margin: 0px 5px 0px 5px;
+  border: 4px solid aliceblue;
+  box-shadow: 1px 5px 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+#thumbnail-container div > img:hover {
+  transform: scale(1.2, 1.2);
+  cursor: pointer;
+}
