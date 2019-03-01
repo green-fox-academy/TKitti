@@ -84,3 +84,7 @@ body {
   transform: scale(1.2, 1.2);
   cursor: pointer;
 }
+
+#middle-thumbnail {
+  transform: scale(1.2, 1.2);
+}

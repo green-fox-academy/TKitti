@@ -19,10 +19,19 @@ let listOfImgSources = [
 
 
 let activeImage = listOfImgSources[0];
+let activeLeftThumbnail = listOfImgSources[listOfImgSources.length - 1];
+let activeMiddleThumbnail = listOfImgSources[0];
+let activeRightThumbnail = listOfImgSources[1];
 
 
 app.get('/', (req, res) => {
-  res.render('index', {activeImage});
+  res.render('index', {
+    listOfImgSources,
+    activeImage,
+    activeLeftThumbnail,
+    activeMiddleThumbnail,
+    activeRightThumbnail
+  });
 });
 
 
