@@ -23,14 +23,12 @@ body {
   align-items: center;
 }
 
-button {
-  background-color: gainsboro;
-  border: none;
+.arrow:hover {
+  cursor: pointer;
+  background-color: aliceblue;
 }
 
-button:hover {
-  cursor: pointer;
-}
+
   
 
 #main-img-container {

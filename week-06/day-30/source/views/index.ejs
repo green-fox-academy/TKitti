@@ -10,7 +10,7 @@
 <body>
 
   <div id="main-container">
-    <div class="arrow"> <button>
+    <div class="arrow" id="left">
       <svg xmlns="http://www.w3.org/2000/svg" width="14.906" height="22.75" viewBox="0 0 14.906 22.75">
         <defs>
           <style>
@@ -22,17 +22,17 @@
         </defs>
         <path id="Shape_3_copy" data-name="Shape 3 copy" class="cls-1" d="M129.01,311.107a2.45,2.45,0,0,1-3.536,0L114.868,300.5l10.606-10.607a2.5,2.5,0,1,1,3.536,3.536l-7.071,7.071,7.071,7.071A2.449,2.449,0,0,1,129.01,311.107Z" transform="translate(-114.875 -289.125)"/>
       </svg>
-    </button> </div>
+    </div>
 
     <div id="main-img-container"> 
-      <img id="active-main-img" src="<%= listOfImgSources[0].source %>" alt="<%= listOfImgSources[0].altText %>">
+      <img id="active-main-img" src="<%= activeImage.source %>" alt="<%= activeImage.altText %>">
       <div id="main-img-data-container">
-        <h2><%= listOfImgSources[0].imgTitle %></h2>
-        <p><%= listOfImgSources[0].imgText %></p>
+        <h2><%= activeImage.imgTitle %></h2>
+        <p><%= activeImage.imgText %></p>
       </div>
     </div>
     
-    <div class="arrow"> <button>
+    <div class="arrow" id="right">
         <svg id="arrow-right" xmlns="http://www.w3.org/2000/svg" width="14.906" height="22.75" viewBox="0 0 14.906 22.75">
           <defs>
             <style>
@@ -48,14 +48,16 @@
           </defs>
           <path id="Shape_3_copy" data-name="Shape 3 copy" class="cls-1" d="M129.01,311.107a2.45,2.45,0,0,1-3.536,0L114.868,300.5l10.606-10.607a2.5,2.5,0,1,1,3.536,3.536l-7.071,7.071,7.071,7.071A2.449,2.449,0,0,1,129.01,311.107Z" transform="translate(-114.875 -289.125)"/>
         </svg>
-      </button> </div>
+      </div>
   </div>
 
   <div id="thumbnail-container">
-    <div> <img src="<%= listOfImgSources[0].source %>" alt=""> </div>
-    <div> <img src="<%= listOfImgSources[1].source %>" alt=""> </div>
-    <div> <img src="<%= listOfImgSources[2].source %>" alt=""> </div>
+    <div> <img src="<%= activeImage.source %>" alt=""> </div>
+    <div> <img src="<%= activeImage.source %>" alt=""> </div>
+    <div> <img src="<%= activeImage.source %>" alt=""> </div>
   </div>
 
+
+  <script src="../static/js/gallery.js"></script>
 </body>
 </html>
