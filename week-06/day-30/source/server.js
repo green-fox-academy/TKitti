@@ -11,9 +11,9 @@ app.use('/static', express.static('static'));
 
 
 let listOfImgSources = [
-  '../images/pic1.jpg',
-  '../images/pic2.jpg',
-  '../images/pic3.jpg'
+  '../static/images/pic1.jpg',
+  '../static/images/pic2.jpg',
+  '../static/images/pic3.jpg'
 ];
 
 
