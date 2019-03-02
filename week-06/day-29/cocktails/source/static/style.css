@@ -91,4 +91,5 @@ button:hover {
 .one-cocktail-container > p {
   text-align: center;
   margin-right: 50px;
+  font-weight: bold;
 }

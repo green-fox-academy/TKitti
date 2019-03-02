@@ -18,7 +18,11 @@
       <% for (let i = 0; i < cocktails.length; i++) { %>
       <div class="one-cocktail-container">
         <div>
-            <h4><%= cocktails[i].name %></h4>
+            <h4><% if (cocktails[i].isAlcoholic === false) { %>
+                      <%= `${cocktails[i].name} (non-alcoholic)` %>
+                   <% } else { %>
+                      <%= cocktails[i].name %>
+                    <%  } %></h4>
             <p><%= cocktails[i].contains %></p>
         </div>
         <p><%= cocktails[i].price %> Ft</p>

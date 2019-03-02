@@ -42,9 +42,15 @@ tequilaButton.onclick = function () {
 allOption.onclick = function () {
   activeCocktailsList = cocktails;
   for (let i = 0; i < cocktails.length; i++) {
+    if (activeCocktailsList[i].isAlcoholic === false) {
+      cocktailsContainer.children[i].children[0].children[0].textContent = `${activeCocktailsList[i].name} (non-alcoholic)`;
+      cocktailsContainer.children[i].children[0].children[1].textContent = activeCocktailsList[i].contains;
+      cocktailsContainer.children[i].children[1].textContent = `${activeCocktailsList[i].price} Ft`;
+    } else {
       cocktailsContainer.children[i].children[0].children[0].textContent = activeCocktailsList[i].name;
       cocktailsContainer.children[i].children[0].children[1].textContent = activeCocktailsList[i].contains;
       cocktailsContainer.children[i].children[1].textContent = `${activeCocktailsList[i].price} Ft`;
+    }
   }
 }
 
@@ -65,9 +71,9 @@ function filterCocktails (alcohol) {
   
   for (let i = 0; i < cocktails.length; i++) {
     if (i < numberOfCocktailsResult) {
-      cocktailsContainer.children[i].children[0].children[0].textContent = activeCocktailsList[i].name;
-      cocktailsContainer.children[i].children[0].children[1].textContent = activeCocktailsList[i].contains;
-      cocktailsContainer.children[i].children[1].textContent = `${activeCocktailsList[i].price} Ft`;
+        cocktailsContainer.children[i].children[0].children[0].textContent = activeCocktailsList[i].name;
+        cocktailsContainer.children[i].children[0].children[1].textContent = activeCocktailsList[i].contains;
+        cocktailsContainer.children[i].children[1].textContent = `${activeCocktailsList[i].price} Ft`;
     }
     else {
       cocktailsContainer.children[i].children[0].children[0].textContent = '';
