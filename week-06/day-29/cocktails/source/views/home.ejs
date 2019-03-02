@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <h1>Cocktails</h1>
+    <ul>
+      <li><button>all</button></li>
+      <% for (let i = 0; i < alcoholList.length; i++) { %>
+        <li><button><%= alcoholList[i] %></button></li>
+      <% } %>
+    </ul>
+
+    <div id="cocktails-container">
+      <% for (let i = 0; i < cocktails.length; i++) { %>
+      <div class="one-cocktail-container">
+        <div>
+            <h4><%= cocktails[i].name %></h4>
+            <p><%= cocktails[i].contains %></p>
+        </div>
+        <p><%= cocktails[i].price %> Ft</p>
+      </div>
+      <% } %>
+
+    </div>
+    
+    <script src="../static/cocktails.js"></script>
+  </body>
+</html>
