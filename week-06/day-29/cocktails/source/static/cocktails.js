@@ -73,6 +73,7 @@ function filterCocktails (alcohol) {
       cocktailsContainer.children[i].children[0].children[0].textContent = '';
       cocktailsContainer.children[i].children[0].children[1].textContent = '';
       cocktailsContainer.children[i].children[1].textContent = '';
+      //cocktailsContainer.children[i].setAttribute('style', 'background: linear-gradient(rgba(255,255,255,0),rgba(255,255,255,0));');
     }
   }
 } 
