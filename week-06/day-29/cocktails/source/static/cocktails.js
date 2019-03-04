@@ -1,5 +1,7 @@
 'use strict';
 
+//module.exports = activeCocktailsList;
+
 const cocktails = [
   { name: 'GIN FIZZ', price: 1520, contains: ['gin', 'sugar', 'lemon juice', 'soda'], isAlcoholic: true },
   { name: 'BLOODY MARY', price: 1650, contains: ['vodka', 'tomato juice', 'spices'], isAlcoholic: true },
@@ -46,20 +48,21 @@ allOption.onclick = function () {
       cocktailsContainer.children[i].children[0].children[0].textContent = `${activeCocktailsList[i].name} (non-alcoholic)`;
       cocktailsContainer.children[i].children[0].children[1].textContent = activeCocktailsList[i].contains;
       cocktailsContainer.children[i].children[1].textContent = `${activeCocktailsList[i].price} Ft`;
+      cocktailsContainer.children[i].setAttribute('style', 'display: flex;');
     } else {
       cocktailsContainer.children[i].children[0].children[0].textContent = activeCocktailsList[i].name;
       cocktailsContainer.children[i].children[0].children[1].textContent = activeCocktailsList[i].contains;
       cocktailsContainer.children[i].children[1].textContent = `${activeCocktailsList[i].price} Ft`;
+      cocktailsContainer.children[i].setAttribute('style', 'display: flex;');
     }
   }
 }
 
-
-function filterCocktails (alcohol) {
+function filterCocktails(alcohol) {
   let newCocktailList = [];
 
-  cocktails.forEach(function(oneCocktailObject) {
-    oneCocktailObject.contains.some(function(oneIngredient) {
+  cocktails.forEach(function (oneCocktailObject) {
+    oneCocktailObject.contains.some(function (oneIngredient) {
       if (oneIngredient === alcohol) {
         newCocktailList.push(oneCocktailObject);
       }
@@ -67,19 +70,22 @@ function filterCocktails (alcohol) {
   });
 
   activeCocktailsList = newCocktailList;
-  let numberOfCocktailsResult = activeCocktailsList.length; 
-  
+  let numberOfCocktailsResult = activeCocktailsList.length;
+
   for (let i = 0; i < cocktails.length; i++) {
     if (i < numberOfCocktailsResult) {
-        cocktailsContainer.children[i].children[0].children[0].textContent = activeCocktailsList[i].name;
-        cocktailsContainer.children[i].children[0].children[1].textContent = activeCocktailsList[i].contains;
-        cocktailsContainer.children[i].children[1].textContent = `${activeCocktailsList[i].price} Ft`;
+      cocktailsContainer.children[i].children[0].children[0].textContent = activeCocktailsList[i].name;
+      cocktailsContainer.children[i].children[0].children[1].textContent = activeCocktailsList[i].contains;
+      cocktailsContainer.children[i].children[1].textContent = `${activeCocktailsList[i].price} Ft`;
+      cocktailsContainer.children[i].setAttribute('style', 'display: flex;');
     }
     else {
       cocktailsContainer.children[i].children[0].children[0].textContent = '';
       cocktailsContainer.children[i].children[0].children[1].textContent = '';
       cocktailsContainer.children[i].children[1].textContent = '';
       //cocktailsContainer.children[i].setAttribute('style', 'background: linear-gradient(rgba(255,255,255,0),rgba(255,255,255,0));');
+      cocktailsContainer.children[i].setAttribute('style', 'display: none;');
+
     }
   }
 } 

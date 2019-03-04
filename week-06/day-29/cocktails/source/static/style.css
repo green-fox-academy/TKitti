@@ -75,12 +75,7 @@ button:hover {
   background-color: wheat;
 }
 
-.one-cocktail-container:first-child {
-  border-radius: 10% 10% 0% 0%;
-}
-.one-cocktail-container:last-child {
-  border-radius: 0% 0% 10% 10%;
-}
+
 
 .one-cocktail-container > div > h4,
 .one-cocktail-container > div > p {
