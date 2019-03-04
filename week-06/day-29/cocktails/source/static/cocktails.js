@@ -1,7 +1,5 @@
 'use strict';
 
-//module.exports = activeCocktailsList;
-
 const cocktails = [
   { name: 'GIN FIZZ', price: 1520, contains: ['gin', 'sugar', 'lemon juice', 'soda'], isAlcoholic: true },
   { name: 'BLOODY MARY', price: 1650, contains: ['vodka', 'tomato juice', 'spices'], isAlcoholic: true },
@@ -83,7 +81,6 @@ function filterCocktails(alcohol) {
       cocktailsContainer.children[i].children[0].children[0].textContent = '';
       cocktailsContainer.children[i].children[0].children[1].textContent = '';
       cocktailsContainer.children[i].children[1].textContent = '';
-      //cocktailsContainer.children[i].setAttribute('style', 'background: linear-gradient(rgba(255,255,255,0),rgba(255,255,255,0));');
       cocktailsContainer.children[i].setAttribute('style', 'display: none;');
 
     }
