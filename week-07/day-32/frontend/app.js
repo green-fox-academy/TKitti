@@ -58,6 +58,23 @@ app.get('/greeter', (req, res) => {
 });
 
 
+
+app.get('/appenda/:inputWord', (req, res) => {
+  res.writeHead(200, {'Content-Type': 'application/json'});
+
+  let response = {
+    'appended': req.params.inputWord + 'a'
+  }
+
+  if (req.params === null) {
+    res.end(JSON.stringify({error: "Please provide an input!"}));
+  } else {
+    res.end(JSON.stringify(response));
+  }
+});
+
+
+
 app.listen(PORT, () => {
   console.log(`Server is running at ${PORT}`);
 });
