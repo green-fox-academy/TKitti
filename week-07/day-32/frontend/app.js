@@ -33,6 +33,31 @@ app.get('/doubling', (req, res) => {
 });
 
 
+app.get('/greeter', (req, res) => {
+  let message = {};
+
+  if (req.query.name === undefined && req.query.title === undefined) {
+    message = {
+      "error": "Please provide a name and a title!"
+    }
+  } else if (req.query.name === undefined) {
+    message = {
+      "error": "Please provide a name!"
+    }
+  } else if (req.query.title === undefined) {
+    message = {
+      "error": "Please provide a title!"
+    }
+  } 
+  else {
+    message = {
+      'welcome_message': `Oh, hi there ${req.query.name}, my dear ${req.query.title}!` 
+    }
+  }
+  res.json(message);
+});
+
+
 app.listen(PORT, () => {
   console.log(`Server is running at ${PORT}`);
 });
