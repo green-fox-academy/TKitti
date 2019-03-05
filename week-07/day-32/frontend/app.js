@@ -5,7 +5,7 @@ const app = express();
 const PORT = 8080;
 const path = require('path');
 
-app.use(express.json());
+app.use(express.json()); //middleware
 app.use('/assets', express.static('assets'));
 
 app.get('/', (req, res) => {
@@ -66,13 +66,38 @@ app.get('/appenda/:inputWord', (req, res) => {
     'appended': req.params.inputWord + 'a'
   }
 
-  if (req.params === null) {
-    res.end(JSON.stringify({error: "Please provide an input!"}));
-  } else {
-    res.end(JSON.stringify(response));
-  }
+  res.end(JSON.stringify(response));
 });
 
+app.get('/appenda', (req, res) => {
+  res.status(404).send();
+});
+
+
+
+
+app.post('/dountil/:action', (req, res) => {
+  let output = {};
+  let data = req.body;
+
+  
+  if (req.params.action === 'sum') {
+    let start = 0;
+    for (let i = 0; i <= data.until; i++) {
+      start += i;
+    }
+    output = {result: start};
+    
+  } else if (req.params.action === 'factor') {
+    let start = 1;
+    for (let i = 1; i <= data.until; i++) {
+      start *= i;
+    }
+    output = {result: start};
+  }
+  
+  res.json(output);
+});
 
 
 app.listen(PORT, () => {
