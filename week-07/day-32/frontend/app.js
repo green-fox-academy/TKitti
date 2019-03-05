@@ -82,20 +82,21 @@ app.post('/dountil/:action', (req, res) => {
 
   
   if (req.params.action === 'sum') {
-    let start = 0;
+    let startSum = 0;
     for (let i = 0; i <= data.until; i++) {
-      start += i;
+      startSum += i;
     }
-    output = {result: start};
+    output = {result: startSum};
     
   } else if (req.params.action === 'factor') {
-    let start = 1;
+    let startFactor = 1;
     for (let i = 1; i <= data.until; i++) {
-      start *= i;
+      startFactor *= i;
     }
-    output = {result: start};
+    output = {result: startFactor};
   }
   
+  console.log(output);
   res.json(output);
 });
 
