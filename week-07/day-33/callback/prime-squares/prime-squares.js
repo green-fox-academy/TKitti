@@ -1,7 +1,6 @@
 'use strict';
 
 let sectionElement = document.getElementsByTagName('section')[0];
-console.log(sectionElement);
 
 function generateOneDiv (num) {
   let oneDiv = document.createElement('div');
@@ -23,7 +22,6 @@ function changeBackgroundColor (element) {
     element.classList.add('prime');
   } else {
     element.classList.add('not-prime');
-    console.log(isPrime(element.textContent));
   }
 }
 
