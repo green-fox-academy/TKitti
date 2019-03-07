@@ -28,9 +28,9 @@ function listBookTitles () {
 
 
 
-function listDataInTable () {
+function listDataInTable (url) {
   let httpRequest = new XMLHttpRequest();
-  httpRequest.open('GET', '/books_long', true);
+  httpRequest.open('GET', url, true);
   
   httpRequest.onload = () => {
     let content = JSON.parse(httpRequest.responseText);
@@ -79,5 +79,12 @@ function listDataInTable () {
   httpRequest.send();
 }
 
-listBookTitles();
-listDataInTable();
+//listBookTitles();
+
+
+//in default the url is this: '/books_long'
+listDataInTable('/books_long?category=Technology');
+
+
+//firt create a button, append to body, then:
+//button.addEventListener('click', listDataInTable('/books_long?category=Technology'));

@@ -41,7 +41,26 @@ app.get('/books', (req, res) => {
 
 
 app.get('/books_long', (req, res) => {
-  conn.query('SELECT book_mast.book_name, author.aut_name, category.cate_descrip, newpublisher.pub_name, book_mast.book_price FROM author LEFT JOIN book_mast ON author.aut_id=book_mast.aut_id LEFT JOIN category ON category.cate_id=book_mast.cate_id LEFT JOIN newpublisher ON newpublisher.pub_id=book_mast.pub_id', (error, rows) => {
+  let queryString = req.query;
+  let sqlQuery = 'SELECT book_mast.book_name, author.aut_name, category.cate_descrip, publisher.pub_name, book_mast.book_price FROM author LEFT JOIN book_mast ON author.aut_id=book_mast.aut_id LEFT JOIN category ON category.cate_id=book_mast.cate_id LEFT JOIN publisher ON publisher.pub_id=book_mast.pub_id';
+
+  if (Object.entries(queryString).length !== 0) {
+    sqlQuery += ' WHERE';
+
+    if (queryString.category !== undefined) {
+      sqlQuery = sqlQuery.concat(` cate_descrip = '${queryString.category}'`)
+    }
+    if (queryString.publisher !== undefined) {
+      sqlQuery = sqlQuery.concat(` pub_name = '${queryString.publisher}'`);
+    }
+    
+    if (queryString.price !== undefined) {
+      sqlQuery = sqlQuery.concat(` book_price > '${queryString.price}' AND book_price <= '${queryString.price}'`);
+    }
+  }
+
+
+  conn.query(sqlQuery, (error, rows) => {
     if (error) {
       console.log(error);
       res.status(500).send();
@@ -50,6 +69,8 @@ app.get('/books_long', (req, res) => {
     
     res.send(rows);
   });
+
+  
 });
 
 
