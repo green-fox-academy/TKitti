@@ -40,6 +40,19 @@ app.get('/books', (req, res) => {
 });
 
 
+app.get('/books_long', (req, res) => {
+  conn.query('SELECT book_mast.book_name, author.aut_name, category.cate_descrip, newpublisher.pub_name, book_mast.book_price FROM author LEFT JOIN book_mast ON author.aut_id=book_mast.aut_id LEFT JOIN category ON category.cate_id=book_mast.cate_id LEFT JOIN newpublisher ON newpublisher.pub_id=book_mast.pub_id', (error, rows) => {
+    if (error) {
+      console.log(error);
+      res.status(500).send();
+      return;
+    }
+    
+    res.send(rows);
+  });
+});
+
+
 app.listen(PORT, () => {
   console.log(`Server is running at ${PORT}`);
 });
