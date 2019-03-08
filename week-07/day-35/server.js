@@ -25,7 +25,7 @@ const conn = mysql.createConnection({
 
 
 app.get('/posts', (req, res) => {
-  conn.query('SELECT * FROM posts;', (error, rows) => {
+  conn.query('SELECT posts.title, posts.url, posts.timestamp, posts.score, users.name FROM posts LEFT JOIN users ON posts.user_id=users.user_id;', (error, rows) => {
     if (error) {
       console.log(error);
       res.status(500).send();
@@ -55,10 +55,10 @@ app.post('/posts', (req, res) => {
 });
 
 
-app.post('/posts/:id/upvote', (req, res) => {
+app.put('/posts/:id/upvote', (req, res) => {
   let post_id = req.params.id;
 
-  conn.query(`UPDATE posts SET score = score + 1 WHERE id = ${post_id};`, (error, rows) => {
+  conn.query(`UPDATE posts SET score = score + 1 WHERE post_id = ${post_id};`, (error, rows) => {
     if (error) {
       console.log(error);
       res.status(500).send();
@@ -70,10 +70,10 @@ app.post('/posts/:id/upvote', (req, res) => {
 });
 
 
-app.post('/posts/:id/downvote', (req, res) => {
+app.put('/posts/:id/downvote', (req, res) => {
   let post_id = req.params.id;
 
-  conn.query(`UPDATE posts SET score = score - 1 WHERE id = ${post_id};`, (error, rows) => {
+  conn.query(`UPDATE posts SET score = score - 1 WHERE post_id = ${post_id};`, (error, rows) => {
     if (error) {
       console.log(error);
       res.status(500).send();
