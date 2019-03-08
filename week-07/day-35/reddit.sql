@@ -36,3 +36,10 @@ INSERT INTO users (name) VALUES ('Pistike'), ('Jozsika'), ('Piroska');
 
 UPDATE posts SET user_id=101 WHERE post_id=1 OR post_id=2;
 UPDATE posts SET user_id=102 WHERE post_id=4;
+
+
+ALTER TABLE posts
+  DROP score;
+
+ALTER TABLE posts
+  ADD score INT DEFAULT(0) AFTER url;
