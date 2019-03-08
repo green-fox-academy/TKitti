@@ -39,7 +39,6 @@ app.get('/posts', (req, res) => {
 
 //post method for creating new posts on reddit and saving into the database
 app.post('/posts', (req, res) => {
-  let inputData = req.body;
   let inputTitle = req.body.title;
   let inputUrl = req.body.url;
 
@@ -85,9 +84,36 @@ app.put('/posts/:id/downvote', (req, res) => {
 });
 
 
+app.put('/posts/:id', (req, res) => {
+  let postIDinUrl = req.params.id;
+  let inputTitle = req.body.title;
+  let inputUrl = req.body.url;
+  let userIDinHead = Number(req.headers.username);
 
+  conn.query(`SELECT user_id FROM posts WHERE posts.post_id=${postIDinUrl};`, (error, rows) => {
+    if (error) {
+            console.log(error);
+            res.status(500).send();
+            return;
+          }
 
+    let userIDinSql = rows[0].user_id;
+    
+    let updates = [];
 
+    if (userIDinHead == userIDinSql  && inputTitle !== undefined) {
+      updates.push(`title='${inputTitle}'`); 
+    }
+
+    if (userIDinHead === userIDinSql && inputUrl !== undefined) {
+      updates.push(`url='${inputUrl}'`); 
+    }
+
+    let sql = `UPDATE posts SET ${updates[0]}, ${updates[1]} WHERE post_id=${postIDinUrl};`;
+    conn.query(sql, (error, rows) => {});
+    res.send(rows);
+  });
+});
 
 
 
