@@ -37,6 +37,21 @@ app.get('/posts', (req, res) => {
 });
 
 
+app.post('/posts', (req, res) => {
+  let inputData = req.body;
+  let inputTitle = req.body.title;
+  let inputUrl = req.body.url;
+
+  conn.query(`INSERT INTO posts (title, url) VALUES ('${inputTitle}', '${inputUrl}');`, (error, rows) => {
+    if (error) {
+      console.log(error);
+      res.status(500).send();
+      return;
+    }
+
+  res.send(rows);
+  });
+});
 
 
 
