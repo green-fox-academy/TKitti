@@ -37,12 +37,28 @@ app.get('/posts', (req, res) => {
 });
 
 
+//post method for creating new posts on reddit and saving into the database
 app.post('/posts', (req, res) => {
   let inputData = req.body;
   let inputTitle = req.body.title;
   let inputUrl = req.body.url;
 
   conn.query(`INSERT INTO posts (title, url) VALUES ('${inputTitle}', '${inputUrl}');`, (error, rows) => {
+    if (error) {
+      console.log(error);
+      res.status(500).send();
+      return;
+    }
+
+  res.send(rows);
+  });
+});
+
+
+app.post('/posts/:id/upvote', (req, res) => {
+  let post_id = req.params.id;
+
+  conn.query(`UPDATE posts SET score = score + 1 WHERE id = ${post_id};`, (error, rows) => {
     if (error) {
       console.log(error);
       res.status(500).send();
