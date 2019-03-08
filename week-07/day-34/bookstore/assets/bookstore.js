@@ -1,6 +1,7 @@
 'use strict';
 
 let body = document.getElementsByTagName('body')[0];
+let table = document.createElement('table');
 
 function listBookTitles () {
   let httpRequest = new XMLHttpRequest();
@@ -36,7 +37,7 @@ function listDataInTable (url) {
     let content = JSON.parse(httpRequest.responseText);
 
     //creating table
-    let table = document.createElement('table');
+    
 
     //creating table head row
     let keys = ['Title', 'Author', 'Category', 'Publisher', 'Price'];
@@ -83,8 +84,16 @@ function listDataInTable (url) {
 
 
 //in default the url is this: '/books_long'
-listDataInTable('/books_long?category=Technology');
+listDataInTable('/books_long');
 
 
 //firt create a button, append to body, then:
 //button.addEventListener('click', listDataInTable('/books_long?category=Technology'));
+
+let technologyButton = document.createElement('button');
+technologyButton.textContent = 'technology';
+technologyButton.onclick = function () {
+  table.remove();
+  listDataInTable('/books_long?category=Technology')
+};
+body.appendChild(technologyButton);
