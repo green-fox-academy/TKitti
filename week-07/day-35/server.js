@@ -70,6 +70,20 @@ app.post('/posts/:id/upvote', (req, res) => {
 });
 
 
+app.post('/posts/:id/downvote', (req, res) => {
+  let post_id = req.params.id;
+
+  conn.query(`UPDATE posts SET score = score - 1 WHERE id = ${post_id};`, (error, rows) => {
+    if (error) {
+      console.log(error);
+      res.status(500).send();
+      return;
+    }
+
+  res.send(rows);
+  });
+});
+
 
 
 
