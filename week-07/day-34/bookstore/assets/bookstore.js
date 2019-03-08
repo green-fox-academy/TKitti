@@ -5,7 +5,10 @@ let table = document.createElement('table');
 
 function listBookTitles () {
   let httpRequest = new XMLHttpRequest();
+  //what we send to the backend
   httpRequest.open('GET', '/books', true);
+  //send get method and url to the backend
+  httpRequest.send();
   
   httpRequest.onload = () => {
     let content = JSON.parse(httpRequest.responseText);
@@ -23,7 +26,6 @@ function listBookTitles () {
     body.appendChild(divElement);
   };
   
-  httpRequest.send();
 }
 
 
