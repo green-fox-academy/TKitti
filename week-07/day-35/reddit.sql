@@ -19,3 +19,20 @@ ALTER TABLE posts
 
 INSERT INTO posts (title, url, score) VALUES ('Dear JavaScript', 'http://9gag.com', '791');
 INSERT INTO posts (title, url, score) VALUES ('Crockford', 'http://9gag.com', '567');
+
+
+ALTER TABLE posts
+  CHANGE id post_id INT;
+
+
+CREATE TABLE users (
+  user_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR (15));
+
+ALTER TABLE users AUTO_INCREMENT = 101;
+
+INSERT INTO users (name) VALUES ('Pistike'), ('Jozsika'), ('Piroska');
+
+
+UPDATE posts SET user_id=101 WHERE post_id=1 OR post_id=2;
+UPDATE posts SET user_id=102 WHERE post_id=4;
