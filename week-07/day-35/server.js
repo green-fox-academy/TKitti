@@ -57,14 +57,23 @@ app.post('/posts', (req, res) => {
 app.put('/posts/:id/upvote', (req, res) => {
   let post_id = req.params.id;
 
-  conn.query(`UPDATE posts SET score = score + 1 WHERE post_id = ${post_id};`, (error, rows) => {
+  conn.query(`UPDATE posts SET score = score + 1 WHERE post_id = ${post_id};`, (error, row) => {
     if (error) {
       console.log(error);
       res.status(500).send();
       return;
     }
-
-  res.send(rows);
+    conn.query(
+      `SELECT score FROM posts WHERE post_id=${post_id};`,
+      (error, rows) => {
+        if (error) {
+          console.log(error);
+          res.status(500).send();
+          return;
+        }
+        res.json(rows);
+      }
+    );
   });
 });
 
@@ -78,8 +87,17 @@ app.put('/posts/:id/downvote', (req, res) => {
       res.status(500).send();
       return;
     }
-
-  res.send(rows);
+    conn.query(
+      `SELECT score FROM posts WHERE post_id=${post_id};`,
+      (error, rows) => {
+        if (error) {
+          console.log(error);
+          res.status(500).send();
+          return;
+        }
+        res.json(rows);
+      }
+    );
   });
 });
 
