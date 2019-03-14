@@ -10,9 +10,9 @@ const mysql = require('mysql');
 app.use(express.json());
 app.use('/assets', express.static('assets'));
 
-// app.get('/', (req, res) => {
-//   res.sendFile(path.join(__dirname, '/assets/index.html'));
-// });
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views/index.html'));
+});
 
 
 const conn = mysql.createConnection({
