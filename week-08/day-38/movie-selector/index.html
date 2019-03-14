@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Movie selector</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h3>Movie Selector</h3>
+  <select name="genre" id="genre">
+    <option class="placeholder" selected disabled value="">Select a genre</option>
+    <option value="scifi">Sci-fi</option>
+    <option value="drama">Drama</option>
+    <option value="comedy">Comedy</option>
+  </select>
+
+  <select name="movie" id="movie">
+    <option class="placeholder" selected disabled value="">Select a movie</option>
+    <option class="scifi">Moon</option>
+    <option class="scifi">2001 Space odessy</option>
+    <option class="drama">Contact</option>
+    <option class="drama">Darkest hour</option>
+    <option class="comedy">There will be blood</option>
+    <option class="drama">American beauty</option>
+    <option class="scifi">Airplane!</option>
+    <option class="scifi">Deadpool</option>
+    <option class="comedy">Wayne's World</option>
+  </select>
+  <p>The selected movie is: <span></span></p>
+
+  <script src="movie-selector.js"></script>
+</body>
+</html>
