@@ -1,5 +1,10 @@
 'use strict';
 
+//import
+import {submitNewPost} from './newpost.js';
+
+
+
 function showPosts () {
   let httpRequest = new XMLHttpRequest();
   httpRequest.open('GET', '/posts', true);
@@ -61,6 +66,8 @@ function showPosts () {
 
       articlesContainer.appendChild(article);
     }
+
+    submitNewPost();
   }
 }
 
@@ -79,11 +86,12 @@ function upvoteRequest (inputId, inputIcon) {
   let id = inputId;
 
   let httpRequest = new XMLHttpRequest();
-  httpRequest.open('PUT', `/posts/${id}/upvote`)
+  httpRequest.open('PUT', `/posts/${id}/upvote`);
   httpRequest.setRequestHeader('Content-Type', 'application/json');
   httpRequest.send();
   httpRequest.onload = () => {
     let content = JSON.parse(httpRequest.responseText);
+    console.log(content);
     inputIcon.nextElementSibling.textContent = content[0].score;
   }
 }
@@ -102,7 +110,7 @@ function downvoteRequest (inputId, inputIcon) {
   let id = inputId;
 
   let httpRequest = new XMLHttpRequest();
-  httpRequest.open('PUT', `/posts/${id}/downvote`)
+  httpRequest.open('PUT', `/posts/${id}/downvote`);
   httpRequest.setRequestHeader('Content-Type', 'application/json');
   httpRequest.send();
   httpRequest.onload = () => {
@@ -110,3 +118,8 @@ function downvoteRequest (inputId, inputIcon) {
     inputIcon.previousElementSibling.textContent = content[0].score;
   }
 }
+
+
+
+
+export {showPosts};

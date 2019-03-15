@@ -7,6 +7,10 @@ const PORT = 3000;
 const path = require('path');
 const mysql = require('mysql');
 
+
+//this line parses the json object coming from the frontend to an object
+app.use(express.urlencoded({ extended: true }));
+
 app.use(express.json());
 app.use('/assets', express.static('assets'));
 
@@ -37,19 +41,25 @@ app.get('/posts', (req, res) => {
 });
 
 
+
+app.get('/newpost', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views/newpost.html'));
+});
+
 //post method for creating new posts on reddit and saving into the database
 app.post('/posts', (req, res) => {
   let inputTitle = req.body.title;
   let inputUrl = req.body.url;
+  let inputUserId = req.body.user_id;
 
-  conn.query(`INSERT INTO posts (title, url) VALUES ('${inputTitle}', '${inputUrl}');`, (error, rows) => {
+  conn.query(`INSERT INTO posts (title, url, user_id) VALUES ('${inputTitle}', '${inputUrl}', ${inputUserId});`, (error, rows) => {
     if (error) {
       console.log(error);
       res.status(500).send();
       return;
     }
 
-  res.send(rows);
+  res.send();
   });
 });
 

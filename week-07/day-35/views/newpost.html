@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Reddit Clone</title>
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+
+<body>
+  <header>
+    <h4>space</h4>
+  </header>
+
+  <main>
+    <form id="form-container" action="/posts" method="POST">
+      <label for="title">Title:</label><br>
+      <textarea name="title" id="title" cols="30" rows="10" autofocus></textarea><br>
+      <label for="url">URL</label><br>
+      <input type="url" name="url" id="url"/><br>
+      <label for="user_id">User ID</label><br>
+      <input type="text" name="user_id" id="user_id"><br>
+      <input type="submit" value="Submit" id="submit">
+    </form>
+    
+
+    <section id="sidebar">
+
+    </section>
+  </main>
+
+  <script type="module" src="/assets/newpost.js"></script>
+</body>
+</html>
