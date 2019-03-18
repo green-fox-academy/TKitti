@@ -6,11 +6,11 @@ const PORT = 3000;
 const path = require('path');
 const mysql = require('mysql');
 
-app.use('/', express.static('assets'));
+app.use('/assets', express.static('assets'));
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '/assets/index.html'));
+  res.sendFile(path.join(__dirname, '/views/index.html'));
 });
 
 const connection = mysql.createConnection({
