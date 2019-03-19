@@ -38,7 +38,7 @@ function getNewpostSubpage () {
       data[user_id] = Number(userIdInput);
 
       postNewPost(data);
-      showPostsAgain();
+      
 
     });
   };
@@ -50,16 +50,20 @@ function postNewPost (inputData) {
   httpRequest.open('POST', '/posts', true);
   httpRequest.setRequestHeader('Content-Type', 'application/json');
   httpRequest.send(JSON.stringify(inputData));
-  httpRequest.onload = () => {};
+  httpRequest.onload = () => {
+    window.location.replace('http://localhost:3000/');
+  };
 }
 
-function showPostsAgain () {
-  let httpRequest = new XMLHttpRequest();
-  httpRequest.open('GET', '/posts', true);
-  httpRequest.setRequestHeader('Content-Type', 'application/json');
-  httpRequest.send();
-  httpRequest.onload = () => {};
-}
+// function showPostsAgain () {
+//   let httpRequest = new XMLHttpRequest();
+//   httpRequest.open('GET', '/posts', true);
+//   httpRequest.setRequestHeader('Content-Type', 'application/json');
+//   httpRequest.send();
+//   httpRequest.onload = () => {
+//     window.location.replace('http://localhost:3000/');
+//   };
+// }
 
 
 export {submitNewPost};
