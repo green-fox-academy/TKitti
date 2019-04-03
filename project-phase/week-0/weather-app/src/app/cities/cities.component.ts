@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { City } from '../city';
-import { exampleCities } from '../example-cities';
+//import { City } from '../city';
+//import { exampleCities } from '../example-cities';
 
 @Component({
   selector: 'app-cities',
@@ -9,7 +9,7 @@ import { exampleCities } from '../example-cities';
 })
 export class CitiesComponent implements OnInit {
 
-  cities = exampleCities;
+  //cities = exampleCities;
 
   constructor() { }
 

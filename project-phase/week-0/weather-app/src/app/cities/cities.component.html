@@ -1,8 +1,7 @@
-<div class="city-container" *ngFor="let city of cities" >
-  <div class="city-text-container">
-    <p class="city-name">{{ city.cityName }}</p>
-    <p class="state-name">{{ city.countryName }}</p>
-  </div>
-  <p class="celsius">{{ city.celsius }}</p>
-  <img src="{{ city.imgSource }}" alt="weather img">
+<div id="all-cities-container">
+  <app-seattle></app-seattle>
+  <app-miami></app-miami>
+  <app-barcelona></app-barcelona>
+  <app-london></app-london>
+  <app-budapest></app-budapest>
 </div>
