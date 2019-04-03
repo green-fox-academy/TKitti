@@ -8,6 +8,8 @@ import { MiamiComponent } from './cities/miami/miami.component';
 import { BarcelonaComponent } from './cities/barcelona/barcelona.component';
 import { LondonComponent } from './cities/london/london.component';
 import { BudapestComponent } from './cities/budapest/budapest.component';
+import { WeatherInfoService } from './cities/weather-info.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,9 +22,12 @@ import { BudapestComponent } from './cities/budapest/budapest.component';
     BudapestComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    WeatherInfoService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

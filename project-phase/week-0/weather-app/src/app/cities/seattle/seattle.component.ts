@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { WeatherInfoService } from '../weather-info.service';
 
 @Component({
   selector: 'app-seattle',
@@ -13,9 +15,12 @@ export class SeattleComponent implements OnInit {
     imgSource: '../../assets/cloudy.png'
   }
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    let newInstance = new WeatherInfoService(this.http);
+    newInstance.getWeatherInfo(this.seattle.cityName).subscribe((response) => {
+      this.seattle.celsius = response.main.temp;
+    });
   }
-
 }
