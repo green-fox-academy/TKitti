@@ -1,1 +1,3 @@
-<app-cities></app-cities>
+<input type="text" [(ngModel)]="inputValue" placeholder="city">
+<button (click)="search()">search</button>
+<app-cities *ngFor="let parentCity of cities" [childCity]="parentCity"></app-cities>

@@ -1,7 +1,8 @@
-<div id="all-cities-container">
-  <app-seattle></app-seattle>
-  <app-miami></app-miami>
-  <app-barcelona></app-barcelona>
-  <app-london></app-london>
-  <app-budapest></app-budapest>
+<div class="city-container"  >
+  <div class="city-text-container">
+    <p class="city-name">{{ childCity.cityName }}</p>
+    <p class="state-name">{{ childCity.countryName }}</p>
+  </div>
+  <p class="celsius">{{ childCity.celsius }}°C</p>
+  <img src="{{ childCity.imgSource }}" alt="weather img">
 </div>
