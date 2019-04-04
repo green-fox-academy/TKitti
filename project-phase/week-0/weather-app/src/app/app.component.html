@@ -1,3 +1,4 @@
 <input type="text" [(ngModel)]="inputValue" placeholder="city">
 <button (click)="search()">search</button>
+<p>{{errorMessageForUser}}</p>
 <app-cities *ngFor="let parentCity of cities" [childCity]="parentCity"></app-cities>
