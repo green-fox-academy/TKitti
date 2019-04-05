@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { City } from '../city';
 
+
 @Component({
   selector: 'app-cities',
   templateUrl: './cities.component.html',
@@ -8,6 +9,16 @@ import { City } from '../city';
 })
 export class CitiesComponent implements OnInit {
   @Input() childCity: City;
+  //@Input() inputValue: string = "";
+  @Input() cityIdByDetailedView: number;
+  
+  error;
+  errorMessageForUser: string = '';
+  cityNameByDetailedView: string;
+
+  cities: City[] = [];
+
+  constructor() { }
 
   ngOnInit() { }
 }

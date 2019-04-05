@@ -1,5 +1,5 @@
-<div class="one-day-container">
-  <img src="{{ childCity.imgSource }}" alt="weather-image">
-  <p class="temperature">{{ childCity.celsius }}°C</p>
-  <p class="weather-description">{{ childCity.description }}</p>
+<div *ngFor="let city of cities" class="one-day-container">
+  <img src="{{ city.imgSource }}" alt="weather-image">
+  <p class="temperature">{{ city.celsius }}°C</p>
+  <p class="weather-description">{{ city.description }}</p>
 </div>
