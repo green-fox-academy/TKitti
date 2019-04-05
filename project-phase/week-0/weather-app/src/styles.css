@@ -26,7 +26,8 @@
   width: 300px;
 }
 
-.city-container img {
+.city-container img, 
+.one-day-container img {
   height: 90px;
   width: 90px;
 }
@@ -44,4 +45,23 @@
   align-self: center;
   font-size: 30px;
   width: 100px;
+}
+
+
+
+/* DETAILED FORECAST */
+#detailed-view-container {
+  background-color: blanchedalmond;
+}
+
+.one-day-container {
+  border: 2px solid purple;
+  width: 150px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px;
+  float: left;
 }

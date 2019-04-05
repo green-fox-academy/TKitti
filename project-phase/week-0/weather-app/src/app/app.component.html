@@ -1,4 +1,15 @@
 <input type="text" [(ngModel)]="inputValue" placeholder="city">
 <button (click)="search()">search</button>
 <p>{{errorMessageForUser}}</p>
-<app-cities *ngFor="let parentCity of cities" [childCity]="parentCity"></app-cities>
+
+<div *ngIf="!isInputvalueString && !isNumber; else next">
+  <app-cities *ngFor="let parentCity of cities" [childCity]="parentCity"></app-cities>
+</div>
+
+<ng-template #next>
+  <div *ngIf="isInputvalueString"><app-cities *ngFor="let parentCity of cities" [childCity]="parentCity"></app-cities></div>
+  <div *ngIf="isNumber">
+    <h3>{{ cityNameByDetailedView }}</h3>
+    <app-forecast *ngFor="let parentCity of cities" [childCity]="parentCity"></app-forecast>
+  </div>
+</ng-template>

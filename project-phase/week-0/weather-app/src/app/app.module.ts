@@ -5,11 +5,13 @@ import { AppComponent } from './app.component';
 import { CitiesComponent } from './cities/cities.component';
 import { WeatherInfoService } from './cities/weather-info.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ForecastComponent } from './forecast/forecast.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CitiesComponent,
+    ForecastComponent,
   ],
   imports: [
     BrowserModule,

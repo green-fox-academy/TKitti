@@ -1,7 +1,9 @@
 export interface ResponseInfo {
+  "dt_txt": string,
   "weather": [
     {
       "main": string,
+      "description": string
     }
   ],
   "main": {
@@ -10,5 +12,6 @@ export interface ResponseInfo {
   "sys": {
     "country": string,
   },
-  "name": string,
+  "id": number,
+  "name": string
 }
